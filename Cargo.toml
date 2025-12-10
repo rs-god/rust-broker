@@ -7,8 +7,8 @@ description = "rust broker"
 keywords = ["broker", "rs-broker", "rust-broker", "kafka", "broker-mq"]
 readme = "README.md"
 license = "MIT"
-repository = "https://github.com/rs-god/rust-broker"
-documentation = "https://docs.rs/rust-broker/"
+repository = "https://github.com/rs-god/rs-broker"
+documentation = "https://docs.rs/rs-broker/"
 
 [dependencies]
 async-trait = "0.1.89"
