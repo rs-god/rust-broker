@@ -1,5 +1,5 @@
-use rust_broker::Broker;
-use rust_broker::{KafkaConfig, new_broker};
+use rs_broker::Broker;
+use rs_broker::{KafkaConfig, new_broker};
 use std::env;
 use std::sync::Arc;
 

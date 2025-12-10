@@ -215,13 +215,18 @@ impl KafkaImpl {
                 client_config.set("security.protocol", "PLAINTEXT");
             }
             "SASL_PLAINTEXT" => {
+                let sasl_mechanism = config.sasl_mechanism.to_uppercase();
                 client_config
                     .set("security.protocol", "SASL_PLAINTEXT")
-                    .set("sasl.mechanism", &config.sasl_mechanism);
+                    .set("sasl.mechanism", &sasl_mechanism);
 
                 // set username/password
-                if config.sasl_mechanism.to_uppercase() == "PLAIN"
-                    || config.sasl_type_scram_sha.starts_with("SCRAM-SHA")
+                if sasl_mechanism == "PLAIN"
+                    || sasl_mechanism.starts_with("SCRAM-SHA")
+                    || config
+                        .sasl_type_scram_sha
+                        .to_uppercase()
+                        .starts_with("SCRAM-SHA")
                 {
                     client_config
                         .set("sasl.username", &config.username)
@@ -234,13 +239,18 @@ impl KafkaImpl {
                 );
             }
             "SASL_SSL" => {
+                let sasl_mechanism = config.sasl_mechanism.to_uppercase();
                 client_config
                     .set("security.protocol", "SASL_SSL")
-                    .set("sasl.mechanism", &config.sasl_mechanism);
+                    .set("sasl.mechanism", &sasl_mechanism);
 
                 // set username/password
-                if config.sasl_mechanism.to_uppercase() == "PLAIN"
-                    || config.sasl_type_scram_sha.starts_with("SCRAM-SHA")
+                if sasl_mechanism == "PLAIN"
+                    || sasl_mechanism.starts_with("SCRAM-SHA")
+                    || config
+                        .sasl_type_scram_sha
+                        .to_uppercase()
+                        .starts_with("SCRAM-SHA")
                 {
                     client_config
                         .set("sasl.username", &config.username)

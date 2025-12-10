@@ -1,5 +1,5 @@
-use rust_broker::Broker;
-use rust_broker::{KafkaConfig, new_broker};
+use rs_broker::Broker;
+use rs_broker::{KafkaConfig, new_broker};
 use std::env;
 
 #[tokio::main]
@@ -41,7 +41,7 @@ async fn main() {
     // broker
     //     .subscribe(topic, group, async_handler)
     //     .await
-    //     .expect("Failed to subscribe to topic");
+    //     .expect("Could not subscribe to topic");
 }
 
 async fn async_handler(msg: Vec<u8>) -> Result<(), String> {
