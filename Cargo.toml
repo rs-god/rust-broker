@@ -1,6 +1,6 @@
 [package]
 name = "rs-broker"
-version = "1.0.1"
+version = "1.0.2"
 edition = "2024"
 authors = ["daheige"]
 description = "rust broker"
@@ -14,6 +14,6 @@ documentation = "https://docs.rs/rs-broker/"
 async-trait = "0.1.89"
 tokio = { version = "1.48.0", features = ["full"] }
 futures = "0.3.31"
-rdkafka = { version = "0.38.0", features = ["cmake-build"] }
+rdkafka = { version = "0.38.0", features = ["cmake-build","sasl","ssl"] }
 log = "0.4.29"
 env_logger = "0.11.8"
